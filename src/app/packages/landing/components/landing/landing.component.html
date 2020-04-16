@@ -1,0 +1,182 @@
+<main class="landing-page">
+    <ng-container *ngTemplateOutlet="landingTemplate"></ng-container>
+    <ng-container *ngTemplateOutlet="recommendationTemplate"></ng-container>
+</main>
+
+<!-- More options dialog container -->
+<!-- // how u will render this one   -->
+<!-- ng-template ng-container ngTemplateOutlet ?-->
+<div #dialogContainer></div>
+
+<ng-template #landingTemplate>
+    <section class="landing-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 no-right-padding">
+                    <aside class="side-bar" [class.open]="_isMobileFilterOpen">
+                        <a class="close-icon" href="javascript:void(0)" (click)="_isMobileFilterOpen = false">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                        <ng-container *ngTemplateOutlet="accordionTemplate"></ng-container>
+                    </aside>
+                </div>
+                <div class="col-12 col-md-9 no-right-padding right-column">
+                    <ng-container *ngTemplateOutlet="switchTemplate"></ng-container>
+                    <ng-container *ngTemplateOutlet="cardsTemplate"></ng-container>
+                    <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-template>
+
+<ng-template #recommendationTemplate>
+    <section class="landing-section recommended">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 block-padding">
+                    <h4 class="recommendation-title">You might have intererst on these profiles</h4>
+                    <div id="sliderContainer" class="slider-container">
+                        <div class="slider-item" *ngFor="let item of _recommendations">
+                            <div class="wrapper">
+                                <div class="image-wrapper">
+                                    <img src="/assets/images/person1.jpg" />
+                                </div>
+                                <div class="content-wrapper">
+                                    <h5>{{ item.name }}</h5>
+                                    <h5>{{ item.description }}</h5>
+                                    <h5><a href="http://localhost:1000/#/home/profile">View Profile</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-template>
+
+<ng-template #accordionTemplate>
+    <div id="accordion">
+        <div class="card" *ngFor="let category of _categories">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#{{ category.id }}">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>{{ category.name }}
+                </a>
+            </div>
+            <div id="{{ category.id }}" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <ng-container *ngIf="category.type !== _slideType">
+                        <div class="checkbox-content" [class.full]="!(category.options.length > 5)">
+                            <ng-container *ngFor="let option of category.options; let i = index">
+                                <input type="checkbox" id="{{ category.id }}{{ option.id }}" [checked]="option.checked"
+                                    (change)="option.checked = !option.checked; _filterByCateory(option, category)" />
+                                <label for="{{ category.id }}{{ option.id }}">{{ option.name }}</label>
+                            </ng-container>
+                            <span class="more-button" *ngIf="category.options.length > 5">
+                                <a href="javascript:void(0)" (click)="_onMoreOptionClick(category, $event.target)">
+                                    + More</a>
+                            </span>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="category.type === _slideType">
+                        <div class="slider-content">
+                            <ng5-slider [(value)]="category.minValue" [(highValue)]="category.maxValue"
+                                [options]="category.options" (userChangeEnd)="_onUserChangeEnd(category)"></ng5-slider>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #switchTemplate>
+    <div class="switch-block" [class.open]="_isMobileSortOpen">
+        <a class="close-icon" href="javascript:void(0)" (click)="_isMobileSortOpen = false">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+        <div class="tab-view">
+            <ul class="tab-list">
+                <li class="tab-item active" [class.active]="!_isMultiCardView">
+                    <a href="javascript:void(0)" (click)="_onCardViewChanged()">
+                        <i class="fa fa-bars" aria-hidden="true"></i></a>
+                </li>
+                <li class="tab-item" [class.active]="_isMultiCardView">
+                    <a href="javascript:void(0)" (click)="_onCardViewChanged()">
+                        <i class="fa fa-th" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="sorting">
+            <label>Sort profiles by</label>
+            <select class="custom-select" (change)="_onSorting($event.target.value)">
+                <option selected value="none">None</option>
+                <option value="{{ option.value }}" *ngFor="let option of _sortingOptions">
+                    {{ option.label }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="sorting-mobile col-xs-12 no-col-padding">
+        <a href="javascript:void(0)" (click)="_isMobileFilterOpen = true">
+            <i class="fa fa-filter" aria-hidden="true"></i>Filter
+        </a>
+        <a href="javascript:void(0)" (click)="_isMobileSortOpen = true">
+            <i class="fa fa-sort" aria-hidden="true"></i>Sort
+        </a>
+    </div>
+</ng-template>
+
+<ng-template #cardsTemplate>
+    <div class="card-view" [class.multi-view]="_isMultiCardView">
+        <div class="card" *ngFor="let match of _matches">
+            <div class="card-wrapper">
+                <div class="card-image">
+                    <img src="/assets/images/person.jpg" alt="Images" />
+                </div>
+                <div class="card-action">
+                    <ul class="action-list">
+                        <li class="action-item">
+                            <a href="javascript:void(0)"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="action-item">
+                            <a href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="action-item">
+                            <a href="javascript:void(0)"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="action-item">
+                            <a href="javascript:void(0)"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">
+                        <span [tooltip]="match.name">{{ match.name }}</span>
+                        <span class="sub-title">Last seen on {{ match.lastSeen }}</span>
+                    </div>
+                    <div class="card-text" *ngFor="let detail of match.displayDetails">
+                        <label><span [tooltip]="detail.key">{{ detail.key }}</span></label>
+                        <label><span [tooltip]="detail.value">{{ detail.value }}</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-note">
+                <h6 class="note">Joined on {{ match.joinedOn }}</h6>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #footerTemplate>
+    <div class="footer-block">
+        <div class="notify">
+            <button type="button" class="interest site-btn">Send interest to all</button>
+        </div>
+        <div class="pagination-container" *ngIf="_totalItems">
+            <pagination [pagination]="_pagination" [totalItems]="_totalItems"
+                (onPaginationClick)="_onPaginationCliked($event)"></pagination>
+        </div>
+    </div>
+</ng-template>

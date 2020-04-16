@@ -1,0 +1,55 @@
+// Checkbox styles
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    + label {
+        position: relative;
+        margin: 0px;
+        @include maven-medium;
+        font-size: 12px;
+        padding: 0px 20px;
+        color: $primary-text-color;
+        cursor: pointer;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 1.5px;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            background-color: $white-color;
+            border: 1px solid $primary-text-color; 
+            border-radius: 2px;
+            transition: all 0.2s ease 0s;
+        }
+        &:after {
+            transition: all 0.2s ease 0s;
+            content: '';
+            opacity: 0;
+            position: absolute;
+            left: 5px;
+            top: 2.5px;
+            width: 5px;
+            height: 10px;
+            border: solid $white-color;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+    &:checked {
+        + label {
+            &:before {
+                background: $secondary-color;
+                border-color: $secondary-color;
+            }
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+}

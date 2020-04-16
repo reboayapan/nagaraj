@@ -1,0 +1,190 @@
+<header class="navbar-static-top">
+    <section class="header-border-section">
+        <div class="header-border"></div>
+    </section>
+    <section class="header-section">
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+            </div>
+        </nav>
+    </section>
+</header>
+
+<ng-template #headerTemplate>
+    <!-- Site Logo -->
+    <div class="navbar-brand">
+        <a class="logo" href="javascript:void(0)">Shaadi</a>
+    </div>
+
+    <!-- Profile Menu for mobile -->
+    <div class="profile-mobile">
+        <ul class="navbar-nav flex-align-center">
+            <ng-container *ngTemplateOutlet="profileTemplate"></ng-container>
+        </ul>
+    </div>
+
+    <!-- Toggler/Collapse Button -->
+    <button class="navbar-toggler" type="button" [class.active]="_isSideMenuOpen"
+        (click)="_isSideMenuOpen = !_isSideMenuOpen">
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse flex-end">
+        <ng-container *ngTemplateOutlet="navLinksTemplate"></ng-container>
+    </div>
+
+    <!-- Side Menu bar for mobile -->
+    <aside class="sidebar" [class.open]="_isSideMenuOpen">
+        <ng-container *ngTemplateOutlet="sidebarTemplate"></ng-container>
+    </aside>
+</ng-template>
+
+<ng-template #navLinksTemplate>
+    <ul class="navbar-nav flex-align-center">
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Matches
+                <div class="arrow"></div>
+            </a>
+            <div class="dropdown-menu matches hover">
+                <div class="sub-menus">
+                    <ng-container *ngTemplateOutlet="matchesTemplate"></ng-container>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Inbox
+                <div class="arrow"></div>
+            </a>
+            <div class="dropdown-menu inbox hover">
+                <div class="sub-menus">
+                    <ng-container *ngTemplateOutlet="inboxTemplate"></ng-container>
+                </div>
+            </div>
+        </li>
+        <ng-container *ngTemplateOutlet="profileTemplate"></ng-container>
+    </ul>
+</ng-template>
+
+<ng-template #matchesTemplate>
+    <ul class="nav flex-center">
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">New Matches</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="javascript:void(0)">Today's Matches</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">My Matches</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Recently Viewed</a>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #inboxTemplate>
+    <ul class="nav flex-center">
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Invitations</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="javascript:void(0)">Accepted</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Requests</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Sent</a>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #profileTemplate>
+    <li class="nav-item profile dropdown">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbardrop" data-toggle="dropdown">
+            <img class="profile-picture" src="assets/images/user.png" alt="Profile Picture" />
+        </a>
+        <div class="dropdown-menu">
+            <div class="arrow"></div>
+            <div class="profile-details">
+                <h5 class="profile-name ellipsis">Ayyappan<span class="user-id">(M6120136)</span></h5>
+                <div class="profile-status">
+                    <h5 class="profile-name">
+                        <ng-container *ngTemplateOutlet="radialTemplate"></ng-container>
+                        <div class="context">
+                            <span class="sub-title">Profile Completeness</span>
+                            <span class="sub-title title-link"><a href="http://localhost:1000/#/home/edit">
+                                    Complete Your Profile</a></span>
+                        </div>
+                    </h5>
+                </div>
+                <div class="profile-menus">
+                    <ng-container *ngTemplateOutlet="profileMenuTemplate"></ng-container>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="upgrade site-btn">Upgrade Now</button>
+                </div>
+            </div>
+        </div>
+    </li>
+</ng-template>
+
+<ng-template #radialTemplate>
+    <div class="radial">
+        <div class="pie-wrapper progress-75">
+            <span class="label">75<span class="smaller">%</span></span>
+            <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+            </div>
+            <div class="shadow"></div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #profileMenuTemplate>
+    <ul class="list">
+        <li><a href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit
+                Profile</a></li>
+        <li><a href="javascript:void(0)"><i class="fa fa-phone-square"
+                    aria-hidden="true"></i>Help<span>1234567890</span></a></li>
+    </ul>
+    <ul class="list right">
+        <li><a href="javascript:void(0)"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
+        <li><a href="javascript:void(0)"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #sidebarTemplate>
+    <div class="accordion" id="accordion">
+        <div class="card">
+            <div class="card-header">
+                <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
+                    Matches<i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div id="collapseOne" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <ng-container *ngTemplateOutlet="matchesTemplate"></ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                    Inbox<i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <ng-container *ngTemplateOutlet="inboxTemplate"></ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

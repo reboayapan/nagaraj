@@ -1,0 +1,57 @@
+// Radial progress bar
+.pie-wrapper {
+    width: 35px;
+    height: 35px;
+    float: left;
+    position: relative;
+    margin-top: -1px;
+    .label {
+        background: transparent;
+        border-radius: 50%;
+        color: $primary-text-color;
+        cursor: default;
+        display: block;
+        font-size: 10px;
+        left: 0;
+        line-height: 28px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 4px;
+        .smaller {
+          font-size: 8px;
+          vertical-align: middle;
+        }
+      }
+    .pie {
+        height: 100%;
+        width: 100%;
+        clip: rect(0, 35px, 35px, 17.5px);
+        left: 0;
+        position: absolute;
+        top: 0;
+        .half-circle {
+            height: 100%;
+            width: 100%;
+            border: 3px solid $secondary-color;
+            border-radius: 50%;
+            clip: rect(0, 17.5px, 35px, 0);
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+    .shadow {
+        height: 100%;
+        width: 100%;
+        border: 3px solid $secondary-text-color;
+        border-radius: 50%;
+        box-shadow: none !important;
+    }
+    // Generate 100 class name for 100%
+    @for $i from 1 through 100 {
+        &.progress-#{$i} {
+            @include draw-progress($i, $secondary-color);
+        }
+    }
+}

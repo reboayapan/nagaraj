@@ -1,0 +1,534 @@
+.landing-section {
+    min-height: inherit;
+    .container {
+        padding: 0px;
+        .row {
+            margin: 0px;
+        }
+        .sorting-mobile {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: $border-color;
+            z-index: 1002;
+            a {
+                width: 50%;
+                padding: 10px;
+                float: left;
+                @include maven-medium;
+                font-size: 13px;
+                text-align: center;
+                color: $primary-text-color;
+                &:first-child {
+                    border-right: 1px solid $white-color;
+                }
+                .fa {
+                    margin-right: 5px;
+                }
+            }
+        }
+        .switch-block {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            margin: 20px 0px;
+            .close-icon {
+                display: none;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: $primary-text-color;
+                &:hover {
+                    color: $black-color;
+                }
+            }
+            .tab-view {
+                width: 100px;
+                .tab-list {
+                    list-style: none;
+                    padding: 0px;
+                    margin: 0px;
+                    @include maven-medium;
+                    font-size: 25px;
+                    .tab-item {
+                        display: inline-block;
+                        margin-right: 8px;
+                        a {
+                            color: $secondary-text-color;
+                        }
+                        &.active {
+                            a {
+                                color: $primary-text-color;
+                                pointer-events: none;
+                            }   
+                        }
+                    }
+                }
+            }
+            .sorting {
+                width: 100%;
+                text-align: right;
+                label {
+                    @include maven-medium;
+                    font-size: 14px;
+                    color: $black-color;  
+                }
+                select {
+                    @include maven-medium;
+                    font-size: 13px;
+                    margin-left: 8px;
+                    width: 150px;
+                    color: $black-color;
+                }
+            }
+        }
+        .card-view {
+            .card {
+                @include border-opacity(2px, solid, $black-color, 0.1);
+                border-radius: 2px;
+                position: relative;
+                min-height: $card-height;
+                margin-bottom: 15px; 
+                .card-wrapper {
+                    height: $card-height;
+                    overflow: hidden;
+                }
+                .card-note {
+                    @include bg-opacity($black-color, 0.1);
+                    text-align: right;
+                    .note {
+                        margin: 0px;
+                        font-size: 10px;
+                        padding: 5px;
+                    }
+                }
+                .card-image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: $card-height;
+                    height: $card-height;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .card-action {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    padding-right: 15px;
+                    width: $card-action-width;
+                    overflow: hidden;
+                    .action-list {
+                        list-style: none;
+                        padding: 0px;
+                        margin: 0px;
+                        @include maven-medium;
+                        font-size: 18px;
+                        .action-item {
+                            padding: 15px 0px;
+                            a {
+                                color: $secondary-text-color;
+                                &:hover {
+                                    color: $primary-text-color;
+                                }
+                            }
+                        }
+                    }
+                }
+                .card-content {
+                    padding-left: $card-left-padding;
+                    padding-right: $card-right-padding;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    .card-title {
+                        @include maven-medium;
+                        @include ellipsis;
+                        position: relative;
+                        font-size: 18px;
+                        padding-bottom: 5px;
+                        border-bottom: 1px solid $border-color;
+                        padding-right: $card-subtitle-width;
+                        .sub-title {
+                            font-size: 10px;
+                            color: $secondary-text-color;
+                            position: absolute;
+                            right: 0;
+                            bottom: 5px;
+                            width: $card-subtitle-width;
+                            text-align: right;
+                        }
+                    }
+                    .card-text {
+                        display: flex;
+                        flex-wrap: nowrap;
+                        label {
+                            @include maven-medium;
+                            @include ellipsis;
+                            width: 50%;
+                            font-size: 13px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+            &.multi-view {
+                display: flex;
+                flex-wrap: wrap;
+                + .footer-block {
+                    padding-top: 20px;
+                }
+                .card {
+                    width: calc(33.33% - 5px);
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                    min-height: $min-card-height;
+                    .card-wrapper {
+                        height: $min-card-wrapper-height;
+                    }
+                    .card-image {
+                        width: $min-card-height;
+                        height: $min-card-height;
+                    }
+                    .card-action {
+                        padding-right: 5px;
+                        width: $min-card-action-width;
+                        .action-list {
+                            font-size: 12px;
+                            .action-item {
+                                padding: 5px 0px;
+                            }
+                        }
+                    }
+                    .card-content {
+                        padding-left: $min-card-left-padding;
+                        padding-right: $min-card-right-padding;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        .card-title {
+                            font-size: 14px;
+                            padding-right: 0px;
+                            padding-bottom: 3px;
+                            .sub-title {
+                                display: none;
+                            }
+                        }
+                        .card-text {
+                            label {
+                                font-size: 10px;
+                                margin-bottom: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .side-bar {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+            background: $border-color;
+            border-left: 2px solid $border-color;
+            border-right: 2px solid $border-color;
+            min-height: $page-min-height;
+            .close-icon {
+                text-align: right;
+                display: block;
+                padding: 10px;
+                color: $primary-text-color;
+                display: none;
+                &:hover {
+                    color: $black-color;
+                }
+            }
+            .card {
+                border-radius: 0px;
+                border: none;
+                @include border-bottom-opacity(1px, solid, $black-color, 0.15);
+                .card-header {
+                    @include maven-medium;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 0px;
+                    .card-link {
+                        color: $black-color;
+                        display: block;
+                        position: relative;
+                        padding-left: 20px;
+                        .fa {
+                            position: absolute;
+                            left: 0;
+                            top: 3px;
+                            color: $secondary-text-color;
+                            transition: all 0.2s ease 0s;
+                        }
+                        &.collapsed {
+                            .fa {
+                                transform: rotate(-90deg);
+                            }
+                        }
+                    }
+                }
+                .card-body {
+                    background: $border-color;
+                    padding: 15px 10px;
+                    .checkbox-content {
+                        &.full {
+                            input[type="checkbox"] {
+                                + label {
+                                    display: inline-block !important;
+                                    padding: 0px 10px 0px 20px;
+                                    margin: 7px 0px;
+                                }
+                            }    
+                        }
+                        input[type="checkbox"] {
+                            + label {
+                                display: none;
+                                margin: 10px 0px;
+                                &:nth-child(-n+10) {
+                                    display: block;
+                                }
+                            }
+                            &:first-child {
+                                + label {
+                                    margin-top: 0px;
+                                }
+                            }
+                            
+                        }
+                        .more-button {
+                            @include maven-medium;
+                            font-size: 12px;
+                            display: block;
+                            a {
+                                color: $primary-text-color;
+                                &:hover {
+                                    color: $secondary-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-block {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            padding: 10px 0px 25px;
+            .notify {
+                width: 100%;
+                .interest {
+                    @include bg-opacity($primary-color, 1);
+                    color: $white-color;
+                    font-weight: 500;
+                    border-radius: 2px;
+                    font-size: 13px;
+                    padding: 5px 15px;
+                    &:before {
+                        @include bg-opacity($secondary-color, 1);
+                        border-radius: 2px;
+                    }
+                }
+            }
+        }
+    }
+    &.recommended {
+        min-height: auto;
+        background: $border-color;
+        padding: 30px 0px 50px;
+        .block-padding {
+            padding: 0px 25px;
+        }
+        .recommendation-title {
+            font-size: 18px;
+            text-align: center;
+            margin: 0px 0px 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .landing-section {
+        .container {
+            .switch-block {
+                .tab-view {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .landing-section {
+        .container {
+            max-width: 100% !important;
+            .sorting-mobile {
+                display: block;
+            }
+            .switch-block {
+                margin: 0px;
+                padding: 45px 10px 10px 10px;
+                position: fixed;
+                left: 0;
+                top: -100%;
+                height: 100%;
+                right: 0;
+                @include bg-opacity($white-color, 0.9);
+                z-index: 1003;    
+                transition: all 0.2s ease 0s;
+                align-items: flex-start;
+                overflow-y: auto;
+                &.open {
+                    top: 0;
+                }
+                .close-icon {
+                    display: block;
+                }
+                .sorting {
+                    text-align: left;
+                    label {
+                        font-size: 12px;
+                    }
+                    select {
+                        font-size: 11px;
+                    }
+                }
+                .tab-view {
+                    display: none;
+                }
+            }
+            .side-bar {
+                position: fixed;
+                @include bg-opacity($white-color, 0.9);
+                bottom: initial;
+                height: 100%;
+                z-index: 1003;
+                top: -100%;                
+                transition: all 0.2s ease 0s;
+                .card {
+                    .card-body {
+                        .checkbox-content {
+                            input[type="checkbox"] + label {
+                                display: inline-block !important;
+                                padding: 0px 10px 0px 20px;
+                                margin: 7px 0px;
+                            }
+                            .more-button {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &.open {
+                    top: 0;
+                }
+                .close-icon {
+                    display: block;
+                }
+            }
+            .right-column {
+                padding-right: 15px;
+            }
+            .card-view {
+                margin: 50px 0px 0px;
+                .card {
+                    margin-bottom: 5px;
+                    min-height: 175px;
+                    .card-wrapper {
+                        height: 152px;
+                    }
+                    .card-content {
+                        padding-left: calc(90px + 15px);
+                        padding-right: calc(10px + 15px);
+                        .card-title {
+                            font-size: 14px;
+                            padding-right: 0px;
+                            .sub-title {
+                                display: none;
+                            }
+                        }
+                        .card-text {
+                            label {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                    .card-action {
+                        width: 20px;
+                        padding-right: 5px;
+                        .action-list {
+                            font-size: 12px;
+                            .action-item {
+                                padding: 9px 0px;
+                            }
+                        }
+                    }
+                    .card-image {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    .card-note {
+                        .note {
+                            font-size: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        &.recommended {
+            .recommendation-title {
+                font-size: 15px;
+            }
+            .block-padding {
+                padding: 0px 35px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 497px) {
+    .landing-section {
+        .container {
+            .footer-block {
+                flex-wrap: wrap;
+                .pagination-container {
+                    margin: 10px 0px 0px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 419px) { 
+    .landing-section {
+        .container {
+            .card-view {
+                .card {
+                    .card-image {
+                        width: 75px;
+                        height: 75px;
+                    }
+                    .card-content {
+                        padding-left: calc(70px + 15px);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<ul class="pagination">
+    <li class="page-item" [class.disabled]="pagination.currentPage === 0" (click)="_onPrevClick()">
+        <a class="page-link" href="javascript:void(0)">Previous</a>
+    </li>
+    <ng-container *ngFor="let index of _indexes">
+        <li class="page-item" [class.active]="index.active" *ngIf="index.visible" (click)="_changeIndex(index)">
+            <a class="page-link" href="javascript:void(0)">{{ index.value + 1 }}</a>
+        </li>
+    </ng-container>
+    <li class="constant">of</li>
+    <li class="page-item disabled-last"><a class="page-link" href="javascript:void(0)">{{ _maxIndex }}</a></li>
+    <li class="page-item" [class.disabled]="pagination.currentPage === this._maxIndex - 1" (click)="_onNextClick()">
+        <a class="page-link" href="javascript:void(0)">Next</a>
+    </li>
+</ul>

@@ -1,0 +1,26 @@
+.ng5-slider {
+    .ng5-slider-bar {
+        background: $secondary-text-color !important;
+        height: 3px !important;
+    }
+    .ng5-slider-pointer {
+        background: $secondary-color;
+        width: 12px !important;
+        height: 12px !important;
+        top: -5px !important;
+        &:focus {
+            outline: none;
+        }
+        &:after {
+            display: none;
+        }
+    }
+    .ng5-slider-bubble {
+        @include maven-medium;
+        font-size: 10px !important;
+        color: $primary-text-color !important;
+    }
+    .ng5-slider-selection {
+        background: $secondary-color !important;
+    }
+}

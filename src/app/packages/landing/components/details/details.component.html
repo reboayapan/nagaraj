@@ -1,0 +1,867 @@
+<div class="container main-container">
+  <h5 style="padding-left:10px;" class="main_title">To get more response, fill below details</h5>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item" (click)="previous(1)">
+      <a class="nav-link " [class.active]="tab1" data-toggle="tab" href="#basic">Basic Details</a>
+    </li>
+    <li class="nav-item" (click)="previous(2)">
+      <a class="nav-link" [class.active]="tab2" data-toggle="tab" id="sample" href="#religion">Religion & Family
+        Details</a>
+    </li>
+    <li class="nav-item" (click)="previous(3)">
+      <a class="nav-link" [class.active]="tab3" data-toggle="tab" href="#partner">Partner Details</a>
+    </li>
+    <li class="nav-item" (click)="previous(4)">
+      <a class="nav-link" [class.active]="tab4" data-toggle="tab" href="#upload_photo">Upload Photo</a>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="basic" class="container tab-pane" [class.active]="tab1">
+      <form [formGroup]="_basicProfileDetail">
+        <div class="form-group row" style="display: flex;margin-top: 10px;">
+          <h5 class="about_yourself_h5">About Yourself : </h5>
+          <textarea title="aboutme"  name="aboutme" class="inputtext about_me">I am currently working as a software professional in private sector, after having completed my bachelor's degree. I come from a middle class, nuclear family with traditional values presently living in Chennai.
+                </textarea>
+        </div>
+        <hr>
+        <h5 style="padding-top:10px;padding-bottom:5px;">Location : </h5>
+        <div class="form-group row">
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm">Country</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="currentCountry">
+              <option>India</option>
+              <option>Srilanka</option>
+              <option>Nepal</option>
+              <option>Singapore</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm ">State</label>
+          <div class="col-lg-3">
+            <select class="form-control form-control-sm" size="0" formControlName="currentState">
+              <option>TamilNadu</option>
+              <option>Kerala</option>
+              <option>Delhi</option>
+              <option>Punjab</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm ">District</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="currentDistrict">
+              <option>Chennai</option>
+              <option>Madurai</option>
+              <option>Theni</option>
+              <option>Kanchipuram</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <!-- <div class="form-group row eduction">  -->
+        <h5 style="padding-bottom:5px;"> Education and Occupation : </h5>
+        <!-- </div> -->
+        <div class="form-group row">
+          <label for="education" class="col-lg-2 col-form-label col-form-label-sm ">Education</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control form-control-sm"  placeholder="B.Tech (IT)"
+              formControlName="education">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Occupation Type</label>
+          <div class=" form-check form-check-inline left-padding">
+            <input class="form-check-input " type="radio" name="occupationType"  value="private"
+              formControlName="occupationType" (change)="selectChange($event)">
+            <label class="form-check-label" for="inlineRadio1">Private</label>
+          </div>
+          <div class="form-check form-check-inline occupation1">
+            <input class="form-check-input" type="radio" name="occupationType"  value="government"
+              formControlName="occupationType" (change)="selectChange($event)">
+            <label class="form-check-label" for="inlineRadio2">Government</label>
+          </div>
+          <div class="form-check form-check-inline occupation2">
+            <input class="form-check-input" type="radio" name="occupationType"  value="business"
+              formControlName="occupationType" (change)="selectChange($event)">
+            <label class="form-check-label" for="inlineRadio3">Business</label>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="!_isBusinessSelected">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Working Field</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="workingField">
+              <option>Software Professional</option>
+              <option>Hr Department</option>
+              <option>Mechnical Dept</option>
+              <option>Core Department</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm ">Designation</label>
+          <div class="col-sm-3">
+            <input type="email" class="form-control form-control-sm" 
+              placeholder="Software Developer" formControlName="designation">
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="_isBusinessSelected">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm ">Business</label>
+          <div class="col-sm-3">
+            <input type="email" class="form-control form-control-sm"  placeholder="Rice Business"
+              formControlName="business">
+          </div>
+          <div class="col-sm-3">
+            <small  class="text-muted">
+              If you are doing business.
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Income</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="income">
+              <option>3 - 5 lakhs per annum</option>
+              <option>5 - 7 lakhs per annum</option>
+              <option>7 - 10 lakhs per annum</option>
+              <option>> 10 lakhs per annum</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <!-- <div class="form-group row eduction">  -->
+        <h5 style="padding-bottom:5px;"> Basic Information : </h5>
+        <!-- </div> -->
+        <div class="form-group row">
+          <label for="motherTongue" class="col-lg-2 col-form-label col-form-label-sm">Mother Tongue</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="motherTongue">
+              <option>Tamil</option>
+              <option>Telugu</option>
+            </select>
+          </div>
+
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm ">Age</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control form-control-sm" formControlName="age">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="maritalStatus" class="col-lg-2 col-form-label col-form-label-sm">Marital Status</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="maritalStatus"
+              (change)="selectChangeHandler($event)">
+              <option>Unmarried</option>
+              <option>Married</option>
+            </select>
+          </div>
+
+          <label *ngIf="_isChildrenInputOpen" for="country"
+            class="  col-lg-2 col-form-label col-form-label-sm">Children</label>
+          <!-- <div  [class.active]="_isChildrenInputOpen"> -->
+          <div class="col-lg-3" *ngIf="_isChildrenInputOpen">
+            <select  class="form-control form-control-sm" size="0" formControlName="children">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+            </select>
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="physicalStatus" class="col-lg col-form-label col-form-label-sm">Physical Status</label>
+          <div class="col-lg-2">
+            <select  class="form-control form-control-sm" size="0" formControlName="physicalStatus">
+              <option>Normal</option>
+              <option>Physically challenged</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg col-form-label col-form-label-sm">Weight</label>
+          <div class="col-lg-2">
+            <select  class="form-control form-control-sm" size="0" formControlName="weight">
+              <option>40 kg</option>
+              <option>41 kg</option>
+              <option>42 kg</option>
+              <option>43 kg</option>
+              <option>44 kg</option>
+              <option>45 kg</option>
+              <option>46 kg</option>
+              <option>47 kg</option>
+              <option>48 kg</option>
+              <option>49 kg</option>
+              <option>50 kg</option>
+              <option>51 kg</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg col-form-label col-form-label-sm ">Height</label>
+          <div class="col-sm-2">
+            <select  class="form-control form-control-sm" size="0" formControlName="height">
+              <option>5ft 0in</option>
+              <option>5ft 1in</option>
+              <option>5ft 2in</option>
+              <option>5ft 3in</option>
+              <option>5ft 4in</option>
+              <option>5ft 5in</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Body Type</label>
+          <div class="form-check form-check-inline col-sm-2 left-padding">
+            <input class="form-check-input " type="radio" name="bodyType"  value="slim"
+              formControlName="bodyType">
+            <label class="form-check-label" for="inlineRadio1">Slim</label>
+          </div>
+          <div class="form-check form-check-inline col-sm-2 left-padding">
+            <input class="form-check-input" type="radio" name="bodyType"  value="average"
+              formControlName="bodyType">
+            <label class="form-check-label" for="inlineRadio2">Average</label>
+          </div>
+          <div class="form-check form-check-inline col-sm-2 left-padding">
+            <input class="form-check-input" type="radio" name="bodyType"  value="athletic"
+              formControlName="bodyType">
+            <label class="form-check-label" for="inlineRadio3">Athletic</label>
+          </div>
+          <div class="form-check form-check-inline col-sm-2 left-padding">
+            <input class="form-check-input" type="radio" name="bodyType"  value="heavy"
+              formControlName="bodyType">
+            <label class="form-check-label" for="inlineRadio3">Heavy</label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Complexion</label>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="complexion" value="dark"
+              formControlName="complexion">
+            <label class="form-check-label" for="inlineRadio3">Dark</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input " type="radio" name="complexion"  value="very fair"
+              formControlName="complexion">
+            <label class="form-check-label" for="inlineRadio1">Very Fair</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="complexion"  value="fair"
+              formControlName="complexion">
+            <label class="form-check-label" for="inlineRadio2">Fair</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-3 left-padding">
+            <input class="form-check-input" type="radio" name="complexion"  value="wheatishbrown"
+              formControlName="complexion">
+            <label class="form-check-label" for="inlineRadio3">Wheatish Brown</label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Eating Habit</label>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input " type="radio" name="eatingHabit" value="veg"
+              formControlName="eatingHabit">
+            <label class="form-check-label" for="inlineRadio1">Veg</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="eatingHabit"  value="Non Veg"
+              formControlName="eatingHabit">
+            <label class="form-check-label" for="inlineRadio2">Non Veg</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="eatingHabit"  value="Eggetarian"
+              formControlName="eatingHabit">
+            <label class="form-check-label" for="inlineRadio3">Eggetarian</label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Drinking Habit</label>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input " type="radio" name="drinkingHabit"  value="No"
+              formControlName="drinkingHabit">
+            <label class="form-check-label" for="inlineRadio1">No</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="drinkingHabit"  value="Drinks Socially"
+              formControlName="drinkingHabit">
+            <label class="form-check-label" for="inlineRadio2">Drinks Socially</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="drinkingHabit"  value="Yes"
+              formControlName="drinkingHabit">
+            <label class="form-check-label" for="inlineRadio3">Yes</label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Smoking Habit</label>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input " type="radio" name="smokingHabit"  value="smokingNo"
+              formControlName="smokingHabit">
+            <label class="form-check-label" for="inlineRadio1">No</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="smokingHabit" 
+              value="smokingOccasionally" formControlName="smokingHabit">
+            <label class="form-check-label" for="inlineRadio2">Occasionally</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="smokingHabit"  value="smokingYes"
+              formControlName="smokingHabit">
+            <label class="form-check-label" for="inlineRadio3">Yes</label>
+          </div>
+        </div>
+        <div class=" form-group row ">
+          <div class="ml-auto">
+            <button class="btn btn-outline-primary " (click)="next(2)">
+              Next
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="religion" class="container tab-pane" [class.active]="tab2">
+      <form [formGroup]="_basicProfileDetail">
+        <h6 style="padding-top:10px;padding-bottom:5px;">Religion Details : </h6>
+        <div class="form-group row">
+          <label for="religion" class="col-lg-2 col-form-label col-form-label-sm">Religion</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="religion">
+              <option>Muslim</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label for="caste" class="col-lg-2 col-form-label col-form-label-sm ">Caste</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="caste">
+              <option>vanniyar</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="raasi" class="col-lg-2 col-form-label col-form-label-sm">Raasi</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="raasi">
+              <option>Muslim</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label for="star" class="col-lg-2 col-form-label col-form-label-sm ">Star</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="star">
+              <option>vanniyar</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="gothram" class="col-lg-2 col-form-label col-form-label-sm">Gothram</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="gothram">
+              <option>Software Professional</option>
+              <option>Hr Department</option>
+              <option>Mechnical Dept</option>
+              <option>Core Department</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm ">Birth Time</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control form-control-sm"  formControlName="birthTime"
+              placeholder="1.00 AM">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Dosham</label>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input " type="radio" name="dosham"  value="option1"
+              formControlName="dosham">
+            <label class="form-check-label" for="inlineRadio1">No</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="dosham"  value="option2"
+              formControlName="dosham">
+            <label class="form-check-label" for="inlineRadio2">yes</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="dosham"  value="option3"
+              formControlName="dosham">
+            <label class="form-check-label" for="inlineRadio3">Dont Know</label>
+          </div>
+        </div>
+        <hr>
+        <h6>Birth place</h6>
+        <div class="form-group row">
+          <label for="birthCountry" class="col-lg-1 col-form-label col-form-label-sm">Country</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="birthCountry">
+              <option>India</option>
+              <option>Srilanka</option>
+              <option>Nepal</option>
+              <option>Singapore</option>
+            </select>
+          </div>
+          <label for="birthState" class="col-lg-1 col-form-label col-form-label-sm ">State</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="birthState">
+              <option>TamilNadu</option>
+              <option>Kerala</option>
+              <option>Delhi</option>
+              <option>Punjab</option>
+            </select>
+          </div>
+          <label for="birthDistrict" class="col-lg-1 col-form-label col-form-label-sm ">District</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="birthDistrict">
+              <option>Chennai</option>
+              <option>Madurai</option>
+              <option>Theni</option>
+              <option>Kanchipuram</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="birth_country" class="col-lg-1 col-form-label col-form-label-sm">Birth Hour</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="birth_hour">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+          <label for="birth_state" class="col-lg-1 col-form-label col-form-label-sm ">Birth Mins</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="birth_mins">
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+            </select>
+          </div>
+          <label for="birth_district" class="col-lg-1 col-form-label col-form-label-sm ">Am/Pm</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="birth_am_pm">
+              <option>Am</option>
+              <option>Pm</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <h6 style="padding-top:10px;padding-bottom:5px;">Family Details : </h6>
+
+        <div class="form-group row" style="display: flex;margin-top: 10px;">
+          <label for="aboutFamily" class="col-lg-2 col-form-label col-form-label-sm">About Family : </label>
+          <textarea title="aboutFamily" id="aboutFamily" name="aboutFamily" class="inputtext about_me">I am currently working as a software professional in private sector, after having completed my bachelor's degree. I come from a middle class, nuclear family with traditional values presently living in Chennai.
+              </textarea>
+        </div>
+        <div class="form-group row">
+          <label for="familyValue" class="col-lg-2 col-form-label col-form-label-sm">Family Value</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="familyValue">
+              <option>Traditional</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label for="familyType" class="col-lg-2 col-form-label col-form-label-sm ">Family Type</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="familyType">
+              <option>Nuclear</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="family_status" class="col-lg-2 col-form-label col-form-label-sm">Father Status</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="fatherStatus">
+              <option>Business</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label for="motherStatus" class="col-lg-2 col-form-label col-form-label-sm ">Mother Status</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="motherStatus">
+              <option>House Wife</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="brothers" class="col-lg-2 col-form-label col-form-label-sm">Brothers</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="brothers">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+          <label for="marriedBrothers" class="col-lg-2 col-form-label col-form-label-sm ">Married Brothers</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0"
+              formControlName="marriedBrothers">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="sisters" class="col-lg-2 col-form-label col-form-label-sm">Sisters</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="sisters">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+          <label for="marriedSisters" class="col-lg-2 col-form-label col-form-label-sm ">Married Sisters</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="marriedSisters">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class=" row ">
+        <div class="mr-auto">
+          <button class="btn btn-outline-primary previous_but" (click)="previous(1)">
+            Previous
+          </button>
+        </div>
+        <div class="ml-auto">
+          <button class="btn btn-outline-primary " (click)="next(3)">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="partner" class="container tab-pane" [class.active]="tab3"><br>
+      <form [formGroup]="_PartnerPreferenceDetail">
+        <div class="form-group">
+          <div class="row ageWrap ">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <h6 style="padding-top:10px;padding-bottom:5px;">Age Range :</h6>
+              <div class="ageWrap row">
+                <div class="ageFrom col-5">
+                  <select  class="form-control form-control-sm  Dropdown-control" size="0"
+                    formControlName="age_to">
+                    <option>18</option>
+                    <option>19</option>
+                  </select>
+                </div>
+                <div class="ageTo col-2 test1">to</div>
+                <div class="ageUpto col-5">
+                  <select  class="form-control form-control-sm Dropdown-control" size="0"
+                    formControlName="age_from">
+                    <option>18</option>
+                    <option>19</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <h6 style="padding-top:10px;padding-bottom:5px;">Income Range :</h6>
+              <div class="ageWrap row">
+                <div class="ageFrom col-5">
+                  <select  class="form-control form-control-sm  Dropdown-control" size="0"
+                    formControlName="income_start_range">
+                    <option>18</option>
+                    <option>19</option>
+                  </select>
+                </div>
+                <div class="ageTo col-2 test1">to</div>
+                <div class="ageUpto col-5">
+                  <select  class="form-control form-control-sm Dropdown-control" size="0"
+                    formControlName="income_end_range">
+                    <option>18</option>
+                    <option>19</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h6 style="padding-top:10px;padding-bottom:5px;">Height Range : </h6>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">From</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="height_from">
+              <option>4 ft</option>
+              <option>4 ft</option>
+              <option>4 ft</option>
+              <option>4 ft</option>
+              <option>4 ft</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm ">To</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="height_to">
+              <option>5 ft</option>
+              <option>5 ft</option>
+              <option>5 ft</option>
+              <option>5 ft</option>
+              <option>5 ft</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Gothram</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="district">
+              <option>Software Professional</option>
+              <option>Hr Department</option>
+              <option>Mechnical Dept</option>
+              <option>Core Department</option>
+            </select>
+          </div>
+          <label for="p_birth_time" class="col-lg-2 col-form-label col-form-label-sm ">Birth Time</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control form-control-sm"  placeholder=""
+              formControlName="p_birth_time">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Dosham</label>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input " type="radio" name="dosham" value="option1"
+              formControlName="dosham">
+            <label class="form-check-label" for="inlineRadio1">No</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="dosham"  value="option2"
+              formControlName="dosham">
+            <label class="form-check-label" for="inlineRadio2">yes</label>
+          </div>
+          <div class="form-check form-check-inline col-lg-2 left-padding">
+            <input class="form-check-input" type="radio" name="dosham"  value="option3"
+              formControlName="dosham">
+            <label class="form-check-label" for="inlineRadio3">Dont Know</label>
+          </div>
+        </div>
+        <hr>
+        <h6>Birth place</h6>
+        <div class="form-group row">
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm">Country</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="p_country">
+              <option>India</option>
+              <option>Srilanka</option>
+              <option>Nepal</option>
+              <option>Singapore</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm ">State</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="p_state">
+              <option>TamilNadu</option>
+              <option>Kerala</option>
+              <option>Delhi</option>
+              <option>Punjab</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-1 col-form-label col-form-label-sm ">District</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="p_district">
+              <option>Chennai</option>
+              <option>Madurai</option>
+              <option>Theni</option>
+              <option>Kanchipuram</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <!-- <div class="form-group row ">  -->
+        <h6 style="padding-top:10px;padding-bottom:5px;">Family Details : </h6>
+        <!-- </div> -->
+
+        <div class="form-group row" style="display: flex;margin-top: 10px;">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">About Yourself : </label>
+          <textarea title="aboutme" id="aboutme" name="about_partner" class="inputtext about_me">I am currently working as a software professional in private sector, after having completed my bachelor's degree. I come from a middle class, nuclear family with traditional values presently living in Chennai.
+                </textarea>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Family Value</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="p_family_value">
+              <option>Traditional</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label for="p_family_type" class="col-lg-2 col-form-label col-form-label-sm ">Family Type</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="p_family_type">
+              <option>Nuclear</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">Father Status</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="p_family_statue">
+              <option>Business</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm ">Mother Status</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="mother">
+              <option>House Wife</option>
+              <option>Hindu</option>
+              <option>Christian</option>
+              <option>Jain</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">No of Brother</label>
+          <div class="col-lg-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="brother">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm ">Brother Married</label>
+          <div class="col-sm-3">
+            <select class="form-control form-control-sm" size="0" formControlName="brother1">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm">No of Sister</label>
+          <div class="col-lg-3">
+            <select i class="form-control form-control-sm" size="0" formControlName="sister">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+          <label for="country" class="col-lg-2 col-form-label col-form-label-sm ">Sister Married</label>
+          <div class="col-sm-3">
+            <select  class="form-control form-control-sm" size="0" formControlName="sister1">
+              <option>None</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>>=5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class=" row ">
+          <div class="mr-auto">
+            <button class="btn btn-outline-primary previous_but" (click)="previous(2)">
+              Previous
+            </button>
+          </div>
+          <div class="ml-auto">
+            <button class="btn btn-outline-primary " (click)="next(4)">
+              Next
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div id="upload_photo" class="container tab-pane" [class.active]="tab4">
+      <div class="container">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <h3>Choose File</h3>
+              <div class="form-group">
+                <input type="file" class="form-control form-control-sm" size="0" name="image"
+                  (change)="fileProgress($event)" />
+              </div>
+              <div *ngIf="fileUploadProgress">
+                Upload progress: {{ fileUploadProgress }}
+              </div>
+              <div class="image-preview mb-3" *ngIf="previewUrl">
+                <img [src]="previewUrl" height="300" />
+              </div>
+
+              <div class="mb-3" *ngIf="uploadedFilePath">
+                {{uploadedFilePath}}
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <!-- </form> -->
+      </div>
+
+      <div class=" row form-group ">
+        <div class="mr-auto">
+          <button class="btn btn-outline-primary next-button" (click)="previous(3)">
+            previous
+          </button>
+        </div>
+
+        <div class="ml-auto">
+          <button class="btn btn-outline-primary " (click)="onSubmit(_basicProfileDetail)">
+            Submit
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>

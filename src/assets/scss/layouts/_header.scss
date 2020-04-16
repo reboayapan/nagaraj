@@ -1,0 +1,517 @@
+.header-border-section {
+    background: $secondary-color;
+    padding: 1px 0px;
+    .header-border {
+        background: $header-border-color;
+        height: 1px;
+    }
+}
+.header-section {
+    background: $primary-color;
+    height: 61px;
+    .navbar {
+        .container {
+            padding: 0px;
+        }
+        .navbar-brand {
+            .logo {
+                color: $white-color;
+                @include maven-medium;
+            }
+        }
+        .navbar-toggler {
+            padding: 0px;
+            .navbar-toggler-icon {
+                height: 2px;
+                width: 25px;
+                display: block;
+                background-color: $white-color;
+                margin: 5px 0px;
+                transition: transform 0.3s ease 0s;
+            }
+            .navbar-toggler-icon {
+                &:nth-child(1) {
+                    transform: translateY(0px) rotate(0deg);
+                }
+                &:nth-child(2) {
+                    transform: translateY(0px) rotate(0deg);
+                }
+                &:nth-child(3) {
+                    transform: translateY(0px) rotate(0deg);
+                }    
+            }
+            &.active {
+                .navbar-toggler-icon {
+                    &:nth-child(1) {
+                        transform: translateX(2px) translateY(8px) rotate(-45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: translateX(2px) translateY(1px) rotate(45deg);
+                    }
+                    &:nth-child(3) {
+                        transform: translate(10px) rotate(0);
+                        width: 0px;
+                    }
+                }
+            }
+        }
+        .navbar-collapse {
+            @include maven-medium;
+            font-size: 15px;
+        }
+        .sidebar {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 61px;
+            left: 0;
+            z-index: 1005;
+            overflow-y: auto;
+            background: transparent;
+            opacity: 0;
+            visibility: collapse;
+            transition: all 0.3s ease 0s;
+            &.open {
+                left: 0;
+                opacity: 1;
+                visibility: visible;
+                @include bg-opacity($black-color, 0.35);
+                .accordion {
+                    left: 0;
+                }
+            }
+            .accordion {
+                width: 100%;
+                max-width: 300px;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: -100%;
+                background: $white-color;
+                transition: all 0.3s ease 0s;
+                .card {
+                    border-radius: 0px;
+                    @include maven-medium;
+                    border: none;
+                    @include border-bottom-opacity(1px, solid, $black-color, 0.2);
+                    .card-header {
+                        border-radius: 0px;
+                        padding: 10px 15px;
+                        font-size: 15px;
+                        background: $border-color;
+                        border: none;
+                        .card-link {
+                            color: $primary-text-color;
+                            position: relative;
+                            display: block;
+                            &.collapsed {
+                                .fa {
+                                    transform: rotate(0deg);
+                                }
+                            }
+                            .fa {
+                                position: absolute;
+                                right: 0;
+                                top: 5px;
+                                font-size: 12px;
+                                transform: rotate(180deg);
+                                transition: all 0.2s ease 0s;
+                            }
+                        }
+                    }
+                    .card-body {
+                        padding: 10px 15px;
+                        .nav {
+                            font-size: 13px;
+                            .nav-item {
+                                display: block;
+                                width: 100%;
+                                .nav-link {
+                                    color: $primary-text-color;
+                                    padding: 10px 0px;
+                                    position: relative;
+                                    &:after {
+                                        content: '';
+                                        background: $primary-color;
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        margin: 0;
+                                        width: 0%;
+                                        height: 2px;
+                                        transition: all 0.2s ease 0s;
+                                    }
+                                }
+                                &.active, &:hover {
+                                    .nav-link {
+                                        &:after {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .profile-mobile {
+            .navbar-nav {
+                display: none;
+            }
+        }
+        .navbar-nav {
+            .nav-item {
+                &:hover {
+                    .dropdown-menu {
+                        &.hover {
+                            visibility: visible;
+                            opacity: 1;
+                            top: 61px;
+                        }
+                    }
+                    .nav-link {
+                        .arrow {
+                            &:before, &:after {
+                                top: 36px;
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                .nav-link {
+                    color: $white-color;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    position: relative;
+                    .profile-picture {
+                        border-radius: 50%;
+                        width: 25px;
+                        height: 25px;
+                    }
+                    &.dropdown-toggle {
+                        &:after {
+                            vertical-align: middle;
+                            margin-left: 6px;
+                            border-width: 4px;
+                        }
+                    }
+                    .arrow {
+                        &:after, &:before {
+                            position: absolute;
+                            display: block;
+                            content: '';
+                            border-color: transparent;
+                            border-style: solid;
+                            border-width: 8px;
+                            right: 30px;
+                            top: 75px;
+                            visibility: collapse;
+                            opacity: 0;
+                            transition: all 0.2s ease 0s;
+                            z-index: 1005;
+                        }
+                        &:before {
+                            border-bottom-color: $black-opacity-5;
+                        }
+                        &:after {
+                            border-bottom-color: $white-color;
+                        }
+                    }
+                }
+                .dropdown-menu {
+                    padding: 0px;
+                    border-radius: 4px;
+                    border: none;
+                    font-size: 13px;
+                    @include box-shadow(0px 3px 6px, $black-color, 0.3);
+                    background-clip: initial;
+                    top: 53px;
+                    right: 0;
+                    left: initial;
+                    margin: 0px;
+                    min-width: 330px;
+                    max-width: 330px;
+                    z-index: 1004;
+                    .profile-details {
+                        color: $primary-text-color;
+                        .profile-name {
+                            font-size: 12px;
+                            @include maven-medium;
+                            margin: 0px;
+                            padding: 10px 18px;
+                            border-bottom: 1px solid $border-color;
+                            &.ellipsis {
+                                @include ellipsis;
+                            }
+                            .user-id {
+                                font-size: 10px;
+                                margin-left: 3px;
+                            }
+                            .sub-title {
+                                display: inline-block;
+                                position: relative;
+                                &.title-link {
+                                    padding-left: 12px;
+                                    &:before {
+                                        content: '';
+                                        background: $border-color;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 6px;
+                                        width: 1px;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+                            .radial {
+                                margin-right: 5px;
+                            }
+                        }
+                        .profile-status {
+                            display: flex;
+                            width: 100%;
+                            .profile-name {
+                                display: flex;
+                                flex-wrap: nowrap;
+                                align-items: center;
+                                width: 100%;
+                            }
+                        }
+                        .profile-menus {
+                            padding: 10px 18px;
+                            display: flex;
+                            flex-wrap: nowrap;
+                            align-items: center;
+                            font-size: 12px;
+                            border-bottom: 1px solid $border-color;
+                            .list {
+                                padding: 0;
+                                margin: 0;
+                                list-style: none;
+                                width: 50%;
+                                li {
+                                    padding: 5px 0px;
+                                    a {
+                                        color: $primary-text-color;
+                                        .fa {
+                                            margin-right: 5px;
+                                        }
+                                        span {
+                                            font-size: 10px;
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                }
+                                &.right {
+                                    padding-left: 15px;
+                                    border-left: 1px solid $border-color;
+                                }
+                            }
+                        }
+                        .upgrade {
+                            @include bg-opacity($primary-color, 1);
+                            color: $white-color;
+                            font-weight: 500;
+                            border-radius: 2px;
+                            font-size: 13px;
+                            padding: 4px 12px;
+                            margin: 10px 20px;
+                            &:before {
+                                @include bg-opacity($secondary-color, 1);
+                                border-radius: 2px;
+                            }
+                        }
+                    }
+                    .arrow {
+                        &:after, &:before {
+                            position: absolute;
+                            display: block;
+                            content: '';
+                            border-color: transparent;
+                            border-style: solid;
+                            border-width: 8px;
+                            right: 18px;
+                            top: -16px;
+                        }
+                        &:before {
+                            border-bottom-color: $black-opacity-5;
+                        }
+                        &:after {
+                            border-bottom-color: $white-color;
+                        }
+                    }
+                    .dropdown-item {
+                        font-weight: 500;
+                        color: $primary-text-color;
+                        line-height: initial;
+                        padding: 10px 15px;
+                        border-bottom: 1px solid $border-color;
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                    }
+                    &.hover {
+                        display: block;
+                        left: 0;
+                        right: 0;
+                        visibility: collapse;
+                        top: 100px;
+                        opacity: 0;
+                        transition: all 0.2s ease 0s;
+                        max-width: 100%;
+                    }
+                    .sub-menus {
+                        .nav {
+                            .nav-item {
+                                padding-right: 15px;
+                                padding-left: 15px;
+                                .nav-link {
+                                    color: $primary-text-color;
+                                    padding-right: 0px;
+                                    padding-left: 0px;
+                                    position: relative;
+                                    &:after {
+                                        content: '';
+                                        background: $primary-color;
+                                        width: 0;
+                                        height: 3px;
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        margin: 0 auto;
+                                        transition: width 0.2s ease 0s;
+                                    }
+                                    &:hover {
+                                        &:after {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                                &.active {
+                                    .nav-link {
+                                        &:after {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.profile {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: 1px;
+                        height: 60%;
+                        margin: auto;
+                        @include bg-opacity($white-color, 0.3);
+                    }  
+                }
+                &:last-child {
+                    .nav-link {
+                        padding-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header-section {
+        height: auto;
+        .navbar {
+            .container {
+                max-width: 100%;
+                flex-wrap: nowrap;
+            }
+            .sidebar {
+                display: block;
+            }
+            .profile-mobile {
+                display: flex;
+                width: 100%;
+                justify-content: flex-end;
+                .navbar-nav {
+                    display: block;
+                    padding-right: 15px;
+                    .nav-item {
+                        &:before {
+                            content: none;
+                        }
+                        .dropdown-menu {
+                            position: absolute;
+                            top: 51px;
+                        }
+                    }
+                }
+            }
+        }
+        .navbar-collapse {
+            display: none !important;
+        }
+    }
+}
+
+@media screen and (max-width: 419px) {
+    .header-section {
+        .navbar {
+            .profile-mobile {
+                .navbar-nav {
+                    .nav-item {
+                        position: static;
+                        .dropdown-menu {
+                            left: 5px;
+                            right: 5px;
+                            max-width: 100%;
+                            top: 59px;
+                            .arrow {
+                                &:before, &:after {
+                                    right: 70px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .header-section {
+        .navbar {
+            .profile-mobile {
+                .navbar-nav {
+                    .nav-item {
+                        .dropdown-menu {
+                            min-width: 0px;
+                            .profile-details {
+                                .profile-name {
+                                    .sub-title {
+                                        margin: 2px 0px;
+                                        &.title-link {
+                                            display: block;
+                                            padding-left: 0px;
+                                            &:before {
+                                                content: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

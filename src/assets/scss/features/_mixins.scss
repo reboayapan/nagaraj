@@ -1,0 +1,59 @@
+@mixin maven-regular {
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 400;
+}
+
+@mixin maven-medium {
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 500;
+}
+
+@mixin bg-opacity($color, $opacity) {
+    background: rgba($color, $opacity);
+}
+
+@mixin color-opacity($color, $opacity) {
+  color: rgba($color, $opacity);
+}
+
+@mixin border-opacity($width, $attr, $color, $opacity) {
+    border: $width $attr rgba($color, $opacity);
+}
+
+@mixin border-top-opacity($width, $attr, $color, $opacity) {
+    border-top: $width $attr rgba($color, $opacity);
+}
+
+@mixin border-bottom-opacity($width, $attr, $color, $opacity) {
+    border-bottom: $width $attr rgba($color, $opacity);
+}
+
+@mixin box-shadow($width, $color, $opacity) {
+    box-shadow: $width rgba($color, $opacity);
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin draw-progress($progress, $color) {
+    .pie {
+        .left-side {
+          transform: rotate($progress * 3.6deg);
+        }
+    
+        @if $progress <= 50 {
+          .right-side {
+            display: none;
+          }
+        } @else {
+          clip: rect(auto, auto, auto, auto);
+    
+          .right-side {
+            transform: rotate(180deg);
+          }
+        }
+    }
+}

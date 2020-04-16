@@ -1,0 +1,41 @@
+.pagination {
+    margin: 0px;
+    @include maven-medium;
+    font-size: 12px;
+    .page-item {
+        margin: 0px 2px;
+        .page-link {
+            border-radius: 2px;
+            @include bg-opacity($black-color, 0.03);
+            color: $primary-text-color;
+            padding: 3px 8px;
+            &:focus {
+                box-shadow: none;
+                outline: none;
+            }
+        }
+        &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        &.disabled-last {
+            pointer-events: none;
+        }
+        &:hover {
+            .page-link {
+                @include bg-opacity($black-color, 0.1);
+            }
+        }
+        &.active {
+            pointer-events: none;
+            .page-link {
+                @include bg-opacity($black-color, 0.15);
+                border-color: $secondary-color;
+                pointer-events: none;
+            }
+        }
+    }
+    .constant {
+        padding: 2px;
+    }
+}

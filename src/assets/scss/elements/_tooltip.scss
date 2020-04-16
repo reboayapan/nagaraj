@@ -1,0 +1,16 @@
+.tooltip-container {
+    @include bg-opacity($black-color, 0.8);
+    position: fixed;
+    width: auto;
+    height: auto;
+    max-width: 250px;
+    border-radius: 2px;
+    transition: all 0.2s ease 0s;
+    .tooltip-text {
+        display: block;
+        @include maven-medium;
+        @include color-opacity($white-color, 0.8);
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}

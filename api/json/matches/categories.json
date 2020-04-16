@@ -1,0 +1,536 @@
+[
+    {
+        "id": "caste",
+        "name": "Caste",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "caste1",
+                "name": "Caste 1",
+                "divisionId": "#",
+                "divisionName": "#",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "caste2",
+                "name": "Caste 2",
+                "divisionId": "#",
+                "divisionName": "#",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "acaste1",
+                "name": "A Caste 1",
+                "divisionId": "a",
+                "divisionName": "A",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "acaste2",
+                "name": "A Caste 2",
+                "divisionId": "a",
+                "divisionName": "A",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "acaste3",
+                "name": "A Caste 3",
+                "divisionId": "a",
+                "divisionName": "A",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "acaste4",
+                "name": "A Caste 4",
+                "divisionId": "a",
+                "divisionName": "A",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "bcaste1",
+                "name": "B Caste 1",
+                "divisionId": "b",
+                "divisionName": "B",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "bcaste2",
+                "name": "B Caste 2",
+                "divisionId": "b",
+                "divisionName": "B",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "bcaste3",
+                "name": "B Caste 3",
+                "divisionId": "b",
+                "divisionName": "B",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ccaste1",
+                "name": "C Caste 1",
+                "divisionId": "c",
+                "divisionName": "C",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ccaste2",
+                "name": "C Caste 2",
+                "divisionId": "c",
+                "divisionName": "C",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ccaste3",
+                "name": "C Caste 3",
+                "divisionId": "c",
+                "divisionName": "C",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ccaste4",
+                "name": "C Caste 4",
+                "divisionId": "c",
+                "divisionName": "C",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "dcaste1",
+                "name": "D Caste 1",
+                "divisionId": "d",
+                "divisionName": "D",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "dcaste2",
+                "name": "D Caste 2",
+                "divisionId": "d",
+                "divisionName": "D",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ecaste",
+                "name": "E Caste",
+                "divisionId": "e",
+                "divisionName": "E",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "fcaste",
+                "name": "F Caste",
+                "divisionId": "f",
+                "divisionName": "F",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "gcaste",
+                "name": "G Caste",
+                "divisionId": "g",
+                "divisionName": "G",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "hcaste",
+                "name": "H Caste",
+                "divisionId": "h",
+                "divisionName": "H",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "icaste",
+                "name": "I Caste",
+                "divisionId": "i",
+                "divisionName": "I",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "jcaste",
+                "name": "J Caste",
+                "divisionId": "j",
+                "divisionName": "J",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "kcaste",
+                "name": "K Caste",
+                "divisionId": "k",
+                "divisionName": "K",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "lcaste",
+                "name": "L Caste",
+                "divisionId": "l",
+                "divisionName": "L",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "mcaste",
+                "name": "M Caste",
+                "divisionId": "m",
+                "divisionName": "M",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ncaste",
+                "name": "N Caste",
+                "divisionId": "n",
+                "divisionName": "N",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ocaste",
+                "name": "O Caste",
+                "divisionId": "o",
+                "divisionName": "O",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "pcaste",
+                "name": "P Caste",
+                "divisionId": "p",
+                "divisionName": "P",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "qcaste",
+                "name": "Q Caste",
+                "divisionId": "q",
+                "divisionName": "Q",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "rcaste",
+                "name": "R Caste",
+                "divisionId": "r",
+                "divisionName": "R",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "scaste",
+                "name": "S Caste",
+                "divisionId": "s",
+                "divisionName": "S",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "tcaste",
+                "name": "T Caste",
+                "divisionId": "t",
+                "divisionName": "T",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ucaste",
+                "name": "U Caste",
+                "divisionId": "u",
+                "divisionName": "U",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "vcaste",
+                "name": "V Caste",
+                "divisionId": "v",
+                "divisionName": "V",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "wcaste",
+                "name": "W Caste",
+                "divisionId": "w",
+                "divisionName": "W",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "xcaste",
+                "name": "X Caste",
+                "divisionId": "x",
+                "divisionName": "X",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "ycaste",
+                "name": "Y Caste",
+                "divisionId": "y",
+                "divisionName": "Y",
+                "count": 30,
+                "parent": "caste"
+            },
+            {
+                "id": "zcaste",
+                "name": "Z Caste",
+                "divisionId": "z",
+                "divisionName": "Z",
+                "count": 30,
+                "parent": "caste"
+            }
+        ]
+    },
+    {
+        "id": "age",
+        "name": "Age",
+        "type": "slider",
+        "options": {
+            "floor": 18,
+            "ceil": 100
+        },
+        "minValue": 21,
+        "maxValue": 32
+    },
+    {
+        "id": "height",
+        "name": "Height",
+        "type": "slider",
+        "options": {
+            "floor": 3.2,
+            "ceil": 6.2
+        },
+        "minValue": 5.2,
+        "maxValue": 6.0
+    },
+    {
+        "id": "income",
+        "name": "Income",
+        "type": "slider",
+        "options": {
+            "floor": 100000,
+            "ceil": 2000000
+        },
+        "minValue": 600000,
+        "maxValue": 1200000
+    },
+    {
+        "id": "maritalStatus",
+        "name": "Marital Status",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "any",
+                "name": "Any",
+                "parent": "maritalStatus"
+            },
+            {
+                "id": "nevermarried",
+                "name": "Never Married",
+                "parent": "maritalStatus"
+            },
+            {
+                "id": "widow",
+                "name": "Widow",
+                "parent": "maritalStatus"
+            },
+            {
+                "id": "dicorced",
+                "name": "Divorced",
+                "parent": "maritalStatus"
+            },
+            {
+                "id": "awaiting",
+                "name": "Awaiting",
+                "parent": "maritalStatus"
+            }
+        ]
+    },
+    {
+        "id": "regional",
+        "name": "Regional",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "any",
+                "name": "Any",
+                "parent": "regional"
+            },
+            {
+                "id": "regional1",
+                "name": "Regional 1",
+                "parent": "regional"
+            },
+            {
+                "id": "regional2",
+                "name": "Regional 2",
+                "parent": "regional"
+            },
+            {
+                "id": "regional3",
+                "name": "Regional 3",
+                "parent": "regional"
+            }
+        ]
+    },
+    {
+        "id": "employeedIn",
+        "name": "Employeed In",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "any",
+                "name": "Any",
+                "parent": "employeedIn"
+            },
+            {
+                "id": "private",
+                "name": "Private",
+                "parent": "employeedIn"
+            },
+            {
+                "id": "govt",
+                "name": "Goverment",
+                "parent": "employeedIn"
+            }
+        ]
+    },
+    {
+        "id": "education",
+        "name": "Education",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "any",
+                "name": "Any",
+                "parent": "education"
+            },
+            {
+                "id": "btech",
+                "name": "B.Tech",
+                "parent": "education"
+            },
+            {
+                "id": "bsc",
+                "name": "B.Sc",
+                "parent": "education"
+            }
+        ]
+    },
+    {
+        "id": "dhosam",
+        "name": "Dhosam",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "any",
+                "name": "Any",
+                "parent": "dhosam"
+            },
+            {
+                "id": "yes",
+                "name": "Yes",
+                "parent": "dhosam"
+            },
+            {
+                "id": "no",
+                "name": "No",
+                "parent": "dhosam"
+            }
+        ]
+    },
+    {
+        "id": "city",
+        "name": "City",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "any",
+                "name": "Any",
+                "parent": "city"
+            },
+            {
+                "id": "chennai",
+                "name": "Chennai",
+                "parent": "city"
+            },
+            {
+                "id": "madurai",
+                "name": "Madurai",
+                "parent": "city"
+            }
+        ]
+    },
+    {
+        "id": "onlyShowProfile",
+        "name": "Only Show Profile",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "withPhoto",
+                "name": "With Photo",
+                "parent": "onlyShowProfile"
+            },
+            {
+                "id": "withHoroscope",
+                "name": "With Horoscope",
+                "parent": "onlyShowProfile"
+            }
+        ]
+    },
+    {
+        "id": "dontShowProfile",
+        "name": "Don't Show Profile",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "alreadyViewed",
+                "name": "Already Viewed",
+                "parent": "dontShowProfile"
+            }
+        ]
+    },
+    {
+        "id": "diet",
+        "name": "Diet",
+        "type": "checkbox",
+        "options": [
+            {
+                "id": "any",
+                "name": "Any",
+                "parent": "diet"
+            },
+            {
+                "id": "veg",
+                "name": "Veg",
+                "parent": "diet"
+            },
+            {
+                "id": "nonveg",
+                "name": "Non Veg",
+                "parent": "diet"
+            }
+        ]
+    }
+]

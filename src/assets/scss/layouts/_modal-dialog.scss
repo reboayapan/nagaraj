@@ -1,0 +1,94 @@
+.more-options-modal {
+    position: fixed;
+    background: $white-color;
+    width: 100%;
+    max-width: 650px;
+    max-height: 350px;
+    @include box-shadow(0px 3px 6px, $black-color, 0.3);
+    border-radius: 2px;
+    visibility: collapse;
+    opacity: 0;
+    transition: all 0.2s ease 0s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .search-section {
+        padding: 15px;
+        display: flex;
+        flex-wrap: nowrap;
+        border-bottom: 1px solid $border-color;
+        .options {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: calc(100% - 30px);
+            .search {
+                @include maven-medium;
+                font-size: 12px;
+                border-radius: 2px;
+                @include border-opacity(1px, solid, $black-color, 0.15);
+                padding: 3px 7px;
+                color: $primary-text-color;
+            }
+            .list {
+                list-style: none;
+                padding: 0px 0px 0px 10px;
+                margin: 0;
+                @include maven-medium;
+                font-size: 12px;
+                li {
+                    display: inline-block;
+                    a {
+                        color: $primary-text-color;
+                        padding: 0px 3px;
+                        &:hover {
+                            color: $black-color;
+                        }
+                    }
+                }
+            }
+        }
+        .close-icon {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 30px;
+            font-size: 15px;
+            @include maven-medium;
+            a {
+                color: $primary-text-color;
+                &:hover {
+                    color: $black-color;
+                }
+            }
+        }
+    }
+    .options-section {
+        max-width: 100%;
+        max-height: 280px;
+        overflow-y: auto;
+        .options-container {
+            padding: 5px 15px 15px 15px;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            height: 280px;
+            flex-wrap: wrap;
+        }
+        span {
+            @include maven-medium;
+            display: inline-block;
+            margin: 3px 0px;
+            &.title {
+                color: $black-color;
+                font-size: 11px;
+                margin: 0px;
+                font-weight: bold;
+            }
+            .count {
+                font-size: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,316 @@
+<div style="outline:none" tabindex="-1" role="group">
+  <div class="home-banner">
+    <div class="home-top-nav">
+      <div class="home-logo">
+      </div>
+      <div >
+        <button type="button" class="btn btn-sm btn-outline-light" style="cursor: pointer;" data-toggle="modal"
+          data-target="#loginmodel">
+          Login</button>
+        <button type="button" class="btn btn-outline-light btn-sm margin-lr-10px" style="cursor: pointer;"
+          data-toggle="modal" data-target="#signupmodel">
+          SignUp</button>
+        <img src="/assets/images/help.jpg" width="20" height="19" data-toggle="tooltip" data-placement="bottom"
+          title="Click for help" alt="" style="cursor:pointer; ">
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <h1 class="home-handline">We bring people together.<br>Love unites them...</h1>
+      </div>
+      <div class="form-style">
+        <form [formGroup]="homeSearchForm">
+          <div class="form-row align-items-center">
+            <div class="form-group col-md-2 col-6 looking_for_div">
+              <label class="label" for="lookingFor">I'm looking for a</label>
+              <div>
+                <select class="form-control form-control-sm dropdown-control" size="0" formControlName="looking_for">
+                  <option>Women</option>
+                  <option>Men</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group col-md-3 col-6">
+              <label class="label age_range">Age Range</label>
+              <div class="ageWrap">
+                <div class="ageFrom">
+                  <select class="form-control form-control-sm  dropdown-control" size="0" formControlName="fromage">
+                    <option>18</option>
+                    <option>19</option>
+                  </select>
+                </div>
+                <div class="ageTo">to</div>
+                <div class="ageUpto">
+                  <select class="form-control form-control-sm dropdown-control" size="0" formControlName="toage">
+                    <option>18</option>
+                    <option>19</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-2 col-6 ">
+              <label class="label" for="lookingFor">Sangam</label>
+              <div>
+                <select class="form-control form-control-sm dropdown-control" size="0" formControlName="sangam">
+                  <option>Redhills Chettiar Sangam</option>
+                  <option>Chettiar Sangam</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group col-md-2 col-6 location_div">
+              <label class="label" for="lookingFor">Location</label>
+              <div>
+                <select class="form-control form-control-sm dropdown-control" size="0" formControlName="city">
+                  <option>Chennai</option>
+                  <option>Redhills</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group col-md-2 col-12">
+              <button data-testid="lets_begin" type="button" class="btn btn-primary btn-sm brand">Let's Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<!-- Login start here -->
+
+<div class="modal fade" id="loginmodel" tabindex="-1" role="dialog" aria-labelledby="loginmodelTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content login_card">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginmodelTitle">Log In</h5>
+        <button type="button" class="close login_close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <form [formGroup]="myLoginForm">
+            <span class="error_text" *ngIf="myLoginForm.get('username').errors?.required  && (myLoginForm.get('username').touched ||
+              myLoginForm.get('username').dirty)">
+              Full Name is required
+            </span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text loginspan"><i class="fa fa-user fa"></i></span>
+              </div>
+              <input type="text" class="form-control" type="text" formControlName="username"
+                placeholder="Mobile Num. / Email" [ngClass]="{ 'is-invalid': ((myLoginForm.get('username').touched ||
+              myLoginForm.get('username').dirty) &&
+              myLoginForm.get('username').errors)}">
+            </div>
+            <span class="error_text" *ngIf="myLoginForm.get('lpassword').errors?.required  && (myLoginForm.get('lpassword').touched ||
+              myLoginForm.get('lpassword').dirty)">
+              Password is required
+            </span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text loginspan"><i class="fa fa-lock"></i></span>
+              </div>
+              <input type="password" class="form-control" formControlName="lpassword" placeholder="password" [ngClass]="{ 'is-invalid': ((myLoginForm.get('lpassword').touched ||
+              myLoginForm.get('lpassword').dirty) &&
+              myLoginForm.get('lpassword').errors)}">
+            </div>
+            <div class="row align-items-center remember">
+              <input type="checkbox">Remember Me
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Login" [disabled]="myLoginForm.pristine || myLoginForm.invalid"
+                class="btn float-right login_btn" data-dismiss="modal" (click)=checkLogin()>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Don't have an account?<button type="button" class="btn btn-link" style="padding-left: 10px;"
+              data-dismiss="modal" data-toggle="modal" data-target="#signupmodel">Sign Up</button>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="#">Forgot your password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SignUp Start Here -->
+<div class="modal fade" id="signupmodel" tabindex="-1" role="dialog" aria-labelledby="signupmodelTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header signup_model_header">
+        <h5 class="modal-title" id="signupmodelTitle">Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <form [formGroup]="mySingnUpForm">
+            <div class="form-group ">
+
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-user fa"
+                      aria-hidden="true"></i></span>
+                </div>
+                <input class=" form-control form-control-sm" type="text" formControlName="fname"
+                  placeholder="First Name" [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('fname').touched ||
+                  mySingnUpForm.get('fname').dirty) &&
+                  mySingnUpForm.get('fname').errors)}">
+                <input class="form-control form-control-sm" type="text" formControlName="lname" placeholder="Last Name"
+                  [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('lname').touched ||
+                mySingnUpForm.get('lname').dirty) &&
+                mySingnUpForm.get('lname').errors)}">
+              </div>
+              <span class="error_text" *ngIf="mySingnUpForm.get('fname').errors?.required  && (mySingnUpForm.get('fname').touched ||
+              mySingnUpForm.get('fname').dirty)">
+                First Name is required
+              </span>
+              <span class="error_text" *ngIf="mySingnUpForm.get('lname').errors?.required  && (mySingnUpForm.get('lname').touched ||
+              mySingnUpForm.get('lname').dirty)">
+                Last Name is required
+              </span>
+            </div>
+            <div class="form-group ">
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope fa"
+                      aria-hidden="true"></i></span>
+                </div>
+                <input class=" form-control form-control-sm" type="text" formControlName="email" placeholder="Email"
+                  [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('email').touched ||
+                mySingnUpForm.get('email').dirty) &&
+                mySingnUpForm.get('email').errors)}">
+              </div>
+              <span class="error_text" *ngIf="mySingnUpForm.get('email').errors?.required  && (mySingnUpForm.get('email').touched ||
+              mySingnUpForm.get('email').dirty)">
+                Email is required
+              </span>
+              <span class="error_text" *ngIf="mySingnUpForm.get('email').errors?.email  && (mySingnUpForm.get('email').touched ||
+              mySingnUpForm.get('email').dirty)">
+                Email must be a valid email address
+              </span>
+            </div>
+            <div class="form-group ">
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"
+                      aria-hidden="true"></i></span>
+                </div>
+                <input class=" form-control form-control-sm" type="date" formControlName="dob"
+                  placeholder="Date Of Birth" [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('dob').touched ||
+                  mySingnUpForm.get('dob').dirty) &&
+                  mySingnUpForm.get('dob').errors)}">
+              </div>
+              <span class="error_text" *ngIf="mySingnUpForm.get('dob').errors?.required  && (mySingnUpForm.get('dob').touched ||
+              mySingnUpForm.get('dob').dirty)">
+                Date of Birth is required
+              </span>
+            </div>
+            <div class="form-group ">
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"> <i class="fa fa-mobile"
+                      aria-hidden="true"></i></span>
+                </div>
+                <input class=" form-control form-control-sm" type="text" formControlName="number"
+                  placeholder="Mobile Number" [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('number').touched ||
+                  mySingnUpForm.get('number').dirty) &&
+                  mySingnUpForm.get('number').errors)}">
+              </div>
+              <span class="error_text" *ngIf="mySingnUpForm.get('number').errors?.required  && (mySingnUpForm.get('number').touched ||
+              mySingnUpForm.get('number').dirty)">
+                Mobile Number is required
+              </span>
+            </div>
+            <div class="form-group ">
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"> <i class="fa fa-user-plus"></i></span>
+                </div>
+                <select class="form-control form-control-sm" formControlName="profile_created_for"
+                  placeholder="Profile Creating for" [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('profile_created_for').touched ||
+                  mySingnUpForm.get('profile_created_for').dirty) &&
+                  mySingnUpForm.get('profile_created_for').errors)}">
+                  <option>-Profile Creating for-</option>
+                  <option>Myself</option>
+                  <option>Son</option>
+                  <option>Daughter</option>
+                  <option>Brother</option>
+                  <option>Sister</option>
+                </select>
+              </div>
+              <span class="error_text" *ngIf="mySingnUpForm.get('profile_created_for').errors?.required  && (mySingnUpForm.get('profile_created_for').touched ||
+              mySingnUpForm.get('profile_created_for').dirty)">
+                Profile Creating for is required
+              </span>
+            </div>
+            <div class="form-group ">
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                </div>
+                <input class=" form-control form-control-sm" type="text" formControlName="password"
+                  placeholder="Password" [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('password').touched ||
+                  mySingnUpForm.get('password').dirty) &&
+                  mySingnUpForm.get('password').errors)}">
+              </div>
+              <span class="error_text" *ngIf="mySingnUpForm.get('password').errors?.required  && (mySingnUpForm.get('password').touched ||
+              mySingnUpForm.get('password').dirty)">
+                Password is required
+              </span>
+            </div>
+            <div class="form-group ">
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i>
+                  </span>
+                </div>
+                <input class=" form-control form-control-sm" type="text" formControlName="confirm_password"
+                  placeholder="Confirm Password" [ngClass]="{ 'is-invalid': ((mySingnUpForm.get('confirm_password').touched ||
+                  mySingnUpForm.get('confirm_password').dirty) &&
+                  mySingnUpForm.get('confirm_password').errors)}">
+              </div>
+              <span class="error_text" *ngIf="mySingnUpForm.get('confirm_password').errors?.required  && (mySingnUpForm.get('confirm_password').touched ||
+              mySingnUpForm.get('confirm_password').dirty)">
+                Confirm Password is required
+              </span>
+
+              <span class="error_text" *ngIf="mySingnUpForm.get('confirm_password').invalid  && (mySingnUpForm.get('confirm_password').touched ||
+            mySingnUpForm.get('confirm_password').dirty) && !mySingnUpForm.get('confirm_password').errors?.required">
+                Password and Confirm Password must be match
+              </span>
+            </div>
+            <div class="form-group  ">
+              <div class="col ">
+                <button class="btn btn-outline-danger btn-block"
+                  [disabled]="mySingnUpForm.pristine || mySingnUpForm.invalid" data-dismiss="modal"
+                  (click)="onSignUpSubmit()">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="text-center">Already have an account?
+            <button type="button" class="btn btn-link" style="padding-left: 10px;" data-toggle="modal"
+              data-target="#loginmodel"> Login here</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

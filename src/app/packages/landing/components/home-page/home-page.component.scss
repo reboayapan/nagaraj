@@ -1,0 +1,363 @@
+.home-banner { //home-banner
+    width: 100%;
+    height: 600px;
+    // background-image: url(https://img2.shaadi.com/assests/2019/images/6-million-home-banner-v1.jpg);
+    background-image: url("/assets/images/home-banner.jpg");
+    
+    background-position-x: center;
+    background-position-y: center;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background-size: cover !important;
+}
+
+.home-top-nav {
+    display: flex;
+    color: #fff;
+    list-style: none;
+    justify-content: space-between; 
+    width: 100%;
+    padding: 15px 5%;
+}
+.logoSixMillionWrap {
+    display: flex;
+}
+
+.home-logo {
+    background-image: url(https://img2.shaadi.com/assests/2016/images/home-logo.png);
+    background-position-x: center;
+    background-position-y: center;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    width: 125px;
+    height: 41px;
+    background-size: 100% !important;
+}
+
+.sixMillion {
+    height: 26px;
+    width: 90px;
+    background-size: 100%!important;
+    background: url(https://img2.shaadi.com/assests/2019/images/6-million-stories.png) no-repeat;
+}
+
+
+.margin-lr-10px{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.img_bg_white{
+    background-color: white;
+}
+
+
+@media (min-width: 768px){
+.home-handline {
+    /* bottom: 45%; */
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 50px;
+    margin: 290px auto 25px;
+    text-shadow: 1px 1px 1px #1f2a1f;
+    color: #fff;
+    text-align: center;
+    margin: 220px auto 15px;
+}
+.age_range{
+    margin-left: 30px;
+}
+.location_div{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.looking_for_div{
+    margin-left: 15px;
+}
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+@media (min-width: 992px){
+.form-style {
+    margin-bottom: 30px;
+    padding: 15px 19px 30px;
+    margin-top: 20px;
+}
+}
+
+.form-style {
+    width: 100%;
+    font-family: Roboto,sans-serif;
+    background: rgba(0,0,0,.3);
+    border-radius: 3px;
+    padding: 1em;
+   
+}
+.label{
+    color: white;
+}
+
+.dropdown-control {
+    padding: 5px 30px 5px 10px!important;
+    border-radius: 3px!important;
+}
+
+
+.ageWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ageTo {
+    display: inline-block;
+    width: 18%;
+    color: #fff;
+    text-align: center;
+}
+
+.brand{
+    margin-top:30px;
+    /* cursor: pointer; */
+    width: 100%;
+}
+
+@media (max-width: 991px){
+    .brand{
+        margin-top:10px;
+    }
+    .home-banner {
+        height: 700px;
+    }
+    .home-handline{
+        font-size: 1.4em;
+        font-family: Raleway,sans-serif;
+        font-weight: 400;
+        color: #fff;
+        text-shadow: 1px 1px 3px #0e0e0e;
+        width: 100%;
+        text-align: center;
+        margin: 250px auto 15px;
+
+    }
+    
+
+}
+
+/* 
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+container{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+} */
+
+.login_card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color:#150f23;
+color: white;
+}
+
+.login_close{
+    color: white;
+    opacity: unset;
+}
+
+
+.card-header h5{
+color: white;
+}
+
+
+.loginspan{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+/* .input-group-text{
+    background-color: #FFC312;
+} */
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+
+
+/* Signup style start here */
+
+.modal-content{
+    width: 400px;
+}
+
+
+.clear{
+    margin: 10px
+}
+
+.container{
+    padding-top: 30px;
+    
+    
+}
+.form-horizontal{
+    /* border-radius: 25px;
+    border: 1px solid rgb(132, 124, 136)  ;	 */
+    /* box-shadow: 1px 1px 1px  grey; */
+    padding-top: 10px;
+}
+.first{
+    background-color: blueviolet
+}
+.eduction{
+    margin-top: 30px;
+    margin-bottom:10px;
+}
+
+.occupation,.occupation1, .occupation2{
+    padding-left: 20px;
+    padding-right: 40px;
+}
+
+.shadows {
+    box-shadow: 0 5px 5px #9c8787, 0 5px 5px #9c8787;
+    background-color: #9c8787
+  }
+
+.second{
+    background-color: brown;
+
+}
+
+@media(min-width: 768px) {
+    .field-label-responsive {
+      padding-top: .5rem;
+      text-align: right;
+    }
+  }
+  .formtitle{
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+
+  .centers{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .padd_lr-10{
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+
+
+  /* login style */
+
+
+  /* .card{
+    
+     margin-top: auto;
+    margin-bottom: auto; 
+    width: 400px; 
+    } */
+
+
+    /* .input-group-prepend span{
+        width: 50px;
+        background-color: #FFC312;
+        color: black;
+        border:0 !important;
+        }
+        */
+        .border-info {
+            border-color: grey!important;
+        } 
+
+
+        .modal-header{
+            border-bottom: none;
+        }
+
+
+        .txt-center{
+            text-align: center;
+            color: white;
+        }
+
+        .error_text{
+            color: red;
+            /* background-color: red; */
+        }
+
+
+        
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: red;
+    /* border-radius: 5px; */
+    /* background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc354…%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E); */
+}
+
+
+.signup_model_header{
+    background-color: #dee2e6;
+}
+
+.model-body{
+    padding: 0px;
+}

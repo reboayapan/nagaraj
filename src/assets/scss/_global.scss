@@ -1,0 +1,47 @@
+// Global scss features
+@import './features';
+
+// Layout files for pages
+@import './layouts';
+
+// Elements
+@import './elements';
+
+body {
+    @include maven-regular;
+}
+a {
+    transition: all 0.2s ease 0s;
+    color: $secondary-color;
+    &:hover {
+        color: $header-border-color;
+        text-decoration: none;    
+    }
+}
+a, button {
+    &:focus, &:active {
+        outline: none;
+    }
+}
+main {
+    min-height: $page-min-height;
+}
+.flex-end {
+    justify-content: flex-end;
+}
+.flex-center {
+    justify-content: center;
+}
+.flex-align-center {
+    align-items: center;
+}
+.no-right-padding {
+    padding-right: 0px;
+}
+.no-padding {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.text-center {
+    text-align: center;
+}

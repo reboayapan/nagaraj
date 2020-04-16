@@ -1,0 +1,32 @@
+<div #wrapper class="more-options-modal" [class.active]="isModalActive" [style.top]="_styles.top"
+    [style.left]="_styles.left">
+    <section class="search-section">
+        <div class="options">
+            <input class="search" type="text" placeholder="Search..." (input)="_onSearchFilter($event.target.value)" />
+            <ul class="list">
+                <li *ngFor="let division of _modalData.divisions">
+                    <a (click)="_focusScroll(division.divisionId)"
+                        href="javascript:void(0)">{{ division.divisionName }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="close-icon">
+            <a href="javascript:void(0)" #closeButton><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div>
+    </section>
+    <section class="options-section">
+        <div class="options-container">
+            <ng-container *ngFor="let option of _modalData.options">
+                <span class="title" id="{{ option.divisionId }}" *ngIf="option.options.length">
+                    {{ option.divisionName }}
+                </span>
+                <span *ngFor="let ioption of option.options">
+                    <input type="checkbox" id="{{ option.id }}{{ ioption.id }}" [checked]="ioption.checked"
+                        (change)="ioption.checked = !ioption.checked; _filterByCategory(ioption)" />
+                    <label for="{{ option.id }}{{ ioption.id }}">{{ ioption.name }}&nbsp;<span class="count"
+                            *ngIf="ioption.count">({{ ioption.count }})</span></label>
+                </span>
+            </ng-container>
+        </div>
+    </section>
+</div>
